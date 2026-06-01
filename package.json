@@ -1,0 +1,4 @@
+{
+    "start": "cd Backend && node server.js",
+    "dev": "cd Backend && nodemon server.js"
+}
