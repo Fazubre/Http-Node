@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ SOLO ESTE middleware de logs
+//Middleware que agrega un log de cada petición al servidor
 app.use(loggerMiddleware);
 
 // Servir frontend
@@ -19,9 +19,13 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 // Rutas
 const usuariosRoutes = require('./routes/usuarios.routes');
 const logsRoutes = require('./routes/logs.routes');
+const proveedoresRoutes = require('./routes/proveedores.routes');
+const pedidosRoutes = require('./routes/pedidos.routes');
 
 app.use('/api', usuariosRoutes);
 app.use('/api', logsRoutes);
+app.use('/api', proveedoresRoutes);
+app.use('/api', pedidosRoutes);
 
 // Fallback
 app.use((req, res) => {
@@ -31,6 +35,7 @@ app.use((req, res) => {
 app.get('/api/status', (req, res) => {
   res.json({ status: 'ok' });
 });
+
 // Puerto
 const PORT = process.env.PORT || 3000;
 
