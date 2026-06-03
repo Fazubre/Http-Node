@@ -21,11 +21,13 @@ const usuariosRoutes = require('./routes/usuarios.routes');
 const logsRoutes = require('./routes/logs.routes');
 const proveedoresRoutes = require('./routes/proveedores.routes');
 const pedidosRoutes = require('./routes/pedidos.routes');
+const cuentasRoutes = require('./routes/cuentasDePresupuesto.routes');
 
 app.use('/api', usuariosRoutes);
 app.use('/api', logsRoutes);
 app.use('/api', proveedoresRoutes);
 app.use('/api', pedidosRoutes);
+app.use('/api', cuentasRoutes);
 
 // Fallback
 app.use((req, res) => {
