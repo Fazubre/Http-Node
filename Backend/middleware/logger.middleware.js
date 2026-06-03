@@ -3,12 +3,13 @@ const db = require('../db/connection');
 const loggerMiddleware = (req, res, next) => {
   const url = req.originalUrl;
 
-  // ❌ ignorar endpoints del sistema
+  // Ignorar endpoints del sistema
   if (
     url.startsWith('/api/logs') ||
     url.startsWith('/api/status') ||
     url.endsWith('.js') ||
     url.endsWith('.css') ||
+    url.endsWith('/favicon.ico') ||
     url === '/'
   ) {
     return next();
