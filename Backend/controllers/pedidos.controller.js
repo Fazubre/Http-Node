@@ -72,17 +72,17 @@ const obtenerPedidos = (req, res) => {
   });
 };
 
-const ObetenrPedidoPorId = (req, res) => {
+const obtenerPedidoPorId = (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT * FROM Pedidos WHERE PedidoId = ?';
   db.query(sql, [id], (err, results) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ error: 'Error al obtener pedido' });
+      return res.status(500).json({ error: `Error al obtener pedido, ${err.message}` });
     }
 
     if (results.length === 0) {
-      return res.status(404).json({ error: 'Pedido no encontrado' });
+      return res.status(404).json({ error: `Pedido no encontrado, ${err.message}` });
     }
 
     res.json(results[0]);
@@ -92,5 +92,5 @@ const ObetenrPedidoPorId = (req, res) => {
 module.exports = {
   crearPedido,
   obtenerPedidos,
-  ObetenrPedidoPorId
+  obtenerPedidoPorId
 };

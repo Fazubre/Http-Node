@@ -4,10 +4,10 @@ const router = express.Router();
 const {
   crearPedido,
   obtenerPedidos,
-  ObetenrPedidoPorId
+  obtenerPedidoPorId
 } = require('../controllers/pedidos.controller');
 
 router.post('/pedidos', crearPedido);
 router.get('/pedidos', obtenerPedidos);
-router.get('/pedidos/:id', ObetenrPedidoPorId);
+router.get('/pedidos/:id', obtenerPedidoPorId);
 module.exports = router;
