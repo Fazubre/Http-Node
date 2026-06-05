@@ -48,7 +48,7 @@ const crearUsuario = (req, res) => {
   ], (err, result) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ error: 'Error al insertar usuario' });
+      return res.status(500).json({ error: `Error al crear usuario, ${err.message}` });
     }
 
     res.json({
@@ -66,7 +66,7 @@ const obtenerUsuarios = (req, res) => {
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ error: 'Error al obtener usuarios' });
+      return res.status(500).json({ error: `Error al obtener usuarios, ${err.message}` });
     }
 
     res.json(results);
