@@ -1,7 +1,7 @@
 let chart;
 
 async function cargarDatos() {
-  const res = await fetch('/api/logs');
+  const res = await fetch('/api/logs?limit=500');
   const logs = await res.json();
 
   document.getElementById('total').innerText = logs.length;
