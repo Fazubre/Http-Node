@@ -1,6 +1,5 @@
 const db = require('../db/connection');
 
-// ✅ Crear usuario
 const crearUsuario = (req, res) => {
   const {
     Nombres,

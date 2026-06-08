@@ -24,8 +24,9 @@ const proveedoresRoutes = require('./routes/proveedores.routes');
 const pedidosRoutes = require('./routes/pedidos.routes');
 const cuentasRoutes = require('./routes/cuentasDePresupuesto.routes');
 const articulosPedidoRoutes = require('./routes/articulosPedido.routes');
+const pedidosFullRoutes = require('./routes/pedidosFull.routes');
 
-
+app.use('/api', pedidosFullRoutes);
 app.use('/api', usuariosRoutes);
 app.use('/api', logsRoutes);
 app.use('/api', proveedoresRoutes);
